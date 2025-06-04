@@ -7,7 +7,7 @@ default:
     just --list --unsorted
 
 # Run dev server
-dev:
+dev: install-modules
     {{ PNR }} dev
 
 # Build project

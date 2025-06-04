@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 import ExternalTemplateRemotesPlugin from 'external-remotes-plugin';
-import 'webpack-dev-server';
+import { Configuration as WebpackDevServerConfiguration } from 'webpack-dev-server';
 
 const { ModuleFederationPlugin } = webpack.container;
 
@@ -15,7 +15,7 @@ type Env = Record<string, unknown>;
 type Options = { mode: 'development' | 'production' };
 
 const webpackConfig = (_env: Env, options: Options) => {
-  const baseConfig: webpack.Configuration = {
+  const baseConfig: webpack.Configuration & { devServer?: WebpackDevServerConfiguration } = {
     entry: './src/index',
     devtool: 'inline-source-map',
     mode: options.mode,
