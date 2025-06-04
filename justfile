@@ -40,6 +40,7 @@ install-modules:
 # Bootstrap project
 bootstrap: install-node enable-corepack install-modules
     just apps/host/bootstrap
+    just apps/app1/bootstrap
 
 # Set up dev container. This step runs after building the dev container
 [linux]

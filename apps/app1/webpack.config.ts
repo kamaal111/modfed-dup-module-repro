@@ -3,7 +3,6 @@ import { fileURLToPath } from 'node:url';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
-import ExternalTemplateRemotesPlugin from 'external-remotes-plugin';
 import 'webpack-dev-server';
 
 const { ModuleFederationPlugin } = webpack.container;
@@ -36,13 +35,13 @@ const webpackConfig = (_env: Env, options: Options) => {
     },
     plugins: [
       new ModuleFederationPlugin({
-        name: 'host',
-        remotes: {
-          app1: 'app1@[app1Url]/remoteEntry.js',
+        name: 'app1',
+        filename: 'remoteEntry.js',
+        exposes: {
+          './App': './src/App',
         },
         shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
       }),
-      new ExternalTemplateRemotesPlugin(),
       new HtmlWebpackPlugin({
         template: './public/index.html',
       }),
@@ -55,7 +54,7 @@ const webpackConfig = (_env: Env, options: Options) => {
         directory: path.join(__dirname, 'public'),
       },
       compress: true,
-      port: 3000,
+      port: 3001,
     };
   }
 
