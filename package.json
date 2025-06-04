@@ -1,0 +1,42 @@
+{
+  "name": "modfed-dup-module-repro",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "lint": "eslint",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "Kamaal Farah",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.11.1",
+  "devDependencies": {
+    "@eslint/js": "^9.28.0",
+    "@kamaalio/prettier-config": "^0.1.2",
+    "@types/node": "^22.15.29",
+    "eslint": "^9.28.0",
+    "eslint-plugin-react": "^7.37.5",
+    "globals": "^16.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.0",
+    "prettier": "^3.5.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.33.1",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "lint-staged": {
+    "**/*": "prettier --write --ignore-unknown"
+  },
+  "prettier": "@kamaalio/prettier-config",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
