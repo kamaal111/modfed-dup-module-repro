@@ -7,6 +7,10 @@ PNX := "pnpm exec"
 default:
     just --list --unsorted
 
+# Run dev server
+dev:
+    {{ PNR }} dev
+
 # Build project
 build-dev:
     {{ PNR }} build:dev

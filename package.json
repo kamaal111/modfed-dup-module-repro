@@ -2,6 +2,7 @@
   "name": "modfed-dup-module-repro",
   "version": "1.0.0",
   "scripts": {
+    "dev": "NODE_OPTIONS='--import tsx' webpack serve --mode development",
     "build": "NODE_OPTIONS='--import tsx' webpack --mode production",
     "build:dev": "NODE_OPTIONS='--import tsx' webpack --mode development",
     "lint": "eslint",
@@ -13,6 +14,11 @@
   "author": "Kamaal Farah",
   "license": "UNLICENSED",
   "packageManager": "pnpm@10.11.1",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
     "@kamaalio/prettier-config": "^0.1.2",
@@ -21,6 +27,7 @@
     "eslint": "^9.28.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.2.0",
+    "html-webpack-plugin": "^5.6.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
@@ -29,7 +36,8 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.33.1",
     "webpack": "^5.99.9",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
   },
   "engines": {
     "node": ">=22.0.0"
@@ -37,8 +45,5 @@
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
   },
-  "prettier": "@kamaalio/prettier-config",
-  "dependencies": {
-    "lodash": "^4.17.21"
-  }
+  "prettier": "@kamaalio/prettier-config"
 }
