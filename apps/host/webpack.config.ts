@@ -2,6 +2,10 @@ import path, { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
+import ExternalTemplateRemotesPlugin from 'external-remotes-plugin';
+
+const { ModuleFederationPlugin } = webpack.container;
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -11,7 +15,7 @@ type Options = { mode: 'development' | 'production' };
 
 const webpackConfig = (_env: Env, options: Options) => {
   const baseConfig: Record<string, unknown> = {
-    entry: './src/index.tsx',
+    entry: './src/index',
     devtool: 'inline-source-map',
     mode: options.mode,
     module: {
@@ -23,23 +27,23 @@ const webpackConfig = (_env: Env, options: Options) => {
         },
       ],
     },
-    devServer: {
-      static: {
-        directory: path.join(__dirname, 'public'),
-      },
-      compress: true,
-      port: 8000,
-    },
     resolve: {
       extensions: ['.tsx', '.ts', '.js', '.wasm', '.mjs', '.cjs', '.json'],
     },
     output: {
-      filename: 'main.js',
-      path: path.resolve(__dirname, 'dist'),
+      publicPath: 'auto',
     },
     plugins: [
+      new ModuleFederationPlugin({
+        name: 'host',
+        remotes: {
+          app2: 'app1@[app1Url]/remoteEntry.js',
+        },
+        shared: { react: { singleton: true }, 'react-dom': { singleton: true } },
+      }),
+      new ExternalTemplateRemotesPlugin(),
       new HtmlWebpackPlugin({
-        template: './src/index.html',
+        template: './public/index.html',
       }),
     ],
   };
@@ -50,7 +54,7 @@ const webpackConfig = (_env: Env, options: Options) => {
         directory: path.join(__dirname, 'public'),
       },
       compress: true,
-      port: 9000,
+      port: 3000,
     };
   }
 
