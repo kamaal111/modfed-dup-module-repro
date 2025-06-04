@@ -11,7 +11,7 @@ type Options = { mode: 'development' | 'production' };
 
 const webpackConfig = (_env: Env, options: Options) => {
   const baseConfig: Record<string, unknown> = {
-    entry: './src/index.ts',
+    entry: './src/index.tsx',
     devtool: 'inline-source-map',
     mode: options.mode,
     module: {
@@ -39,7 +39,7 @@ const webpackConfig = (_env: Env, options: Options) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Trying',
+        template: './src/index.html',
       }),
     ],
   };
