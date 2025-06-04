@@ -14,31 +14,17 @@
   "author": "Kamaal Farah",
   "license": "UNLICENSED",
   "packageManager": "pnpm@10.11.1",
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
   "devDependencies": {
     "@eslint/js": "^9.28.0",
     "@kamaalio/prettier-config": "^0.1.2",
-    "@types/lodash": "^4.17.17",
     "@types/node": "^22.15.29",
-    "@types/react": "^19.1.6",
-    "@types/react-dom": "^19.1.6",
     "eslint": "^9.28.0",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^16.2.0",
-    "html-webpack-plugin": "^5.6.3",
     "husky": "^9.1.7",
     "lint-staged": "^16.1.0",
     "prettier": "^3.5.3",
-    "ts-loader": "^9.5.2",
-    "tsx": "^4.19.4",
-    "typescript": "^5.8.3",
-    "typescript-eslint": "^8.33.1",
-    "webpack": "^5.99.9",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.2"
+    "typescript-eslint": "^8.33.1"
   },
   "engines": {
     "node": ">=22.0.0"

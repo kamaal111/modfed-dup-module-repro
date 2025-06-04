@@ -1,0 +1,32 @@
+{
+  "name": "host",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "NODE_OPTIONS='--import tsx' webpack serve --mode development",
+    "build": "NODE_OPTIONS='--import tsx' webpack --mode production",
+    "build:dev": "NODE_OPTIONS='--import tsx' webpack --mode development"
+  },
+  "keywords": [],
+  "author": "Kamaal Farah",
+  "license": "UNLICENSED",
+  "packageManager": "pnpm@10.11.1",
+  "dependencies": {
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "@types/react": "^19.1.6",
+    "@types/react-dom": "^19.1.6",
+    "html-webpack-plugin": "^5.6.3",
+    "ts-loader": "^9.5.2",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.9",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}

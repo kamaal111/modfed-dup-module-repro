@@ -1,0 +1,26 @@
+set export
+
+PNR := "pnpm run"
+
+# List available commands
+default:
+    just --list --unsorted
+
+# Run dev server
+dev:
+    {{ PNR }} dev
+
+# Build project
+build-dev:
+    {{ PNR }} build:dev
+
+# Install dependencies
+install-modules:
+    #!/bin/zsh
+
+    . ~/.zshrc || true
+
+    echo "Y" | pnpm i
+
+# Bootstrap project
+bootstrap: install-modules

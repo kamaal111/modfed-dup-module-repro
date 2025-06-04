@@ -1,19 +1,18 @@
 set export
 
 PNR := "pnpm run"
-PNX := "pnpm exec"
 
 # List available commands
 default:
     just --list --unsorted
 
-# Run dev server
-dev:
-    {{ PNR }} dev
+# Run dev server for app
+dev app:
+    just apps/{{ app }}/dev
 
-# Build project
-build-dev:
-    {{ PNR }} build:dev
+# Build project for app
+build-dev app:
+    just apps/{{ app }}/build-dev
 
 # Lint project
 lint:
@@ -40,22 +39,13 @@ install-modules:
 
 # Bootstrap project
 bootstrap: install-node enable-corepack install-modules
+    just apps/host/bootstrap
 
 # Set up dev container. This step runs after building the dev container
 [linux]
 post-dev-container-create:
     just .devcontainer/post-create
     just bootstrap
-
-# Bootstrap for CI
-[linux]
-bootstrap-ci: install-zsh enable-corepack install-modules
-
-[private]
-[linux]
-install-zsh:
-    sudo apt-get update
-    sudo apt-get install -y zsh
 
 [private]
 install-node:
