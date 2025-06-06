@@ -23,7 +23,8 @@
         "github.vscode-github-actions",
         "github.vscode-pull-request-github",
         "ritwickdey.liveserver",
-        "yoavbls.pretty-ts-errors"
+        "yoavbls.pretty-ts-errors",
+        "yzhang.markdown-all-in-one"
       ]
     }
   },

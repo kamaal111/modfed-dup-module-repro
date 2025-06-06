@@ -32,7 +32,6 @@ const webpackConfig = (_env: Env, options: Options) => {
     },
     output: {
       publicPath: 'auto',
-      uniqueName: 'app1-unique-unique',
     },
     plugins: [
       new ModuleFederationPlugin({
