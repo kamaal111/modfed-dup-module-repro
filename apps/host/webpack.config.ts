@@ -33,10 +33,11 @@ const webpackConfig = (_env: Env, options: Options) => {
     },
     output: {
       publicPath: 'auto',
+      uniqueName: 'Host',
     },
     plugins: [
       new ModuleFederationPlugin({
-        name: 'host',
+        name: 'Host',
         remotes: {
           app1: 'app1@[app1Url]/remoteEntry.js',
           app2: 'app2@[app2Url]/remoteEntry.js',
