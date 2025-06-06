@@ -38,9 +38,3 @@ This project is designed to be run within a development container. The dev conta
       - `just dev app2`
     - This command will trigger the `dev` script in the respective application\'s `justfile`, which in turn runs the command `pnpm run dev`.
     - After running an application, you can access it in your web browser at `http://localhost:3000`.
-
-## Development Workflow
-
-- **Linting:** Run `just lint` from the root directory.
-- **Formatting:** Run `just format` to format the code or `just format:check` to check formatting.
-- **Quality Checks:** Run `just quality` to perform both linting and format checking.

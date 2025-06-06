@@ -14,20 +14,9 @@ dev app:
 build-dev app:
     just apps/{{ app }}/build-dev
 
-# Lint project
-lint:
-    {{ PNR }} lint
-
 # Format code
 format:
     {{ PNR }} format
-
-# Check code formatting
-format-check:
-    {{ PNR }} format:check
-
-# Run quality checks
-quality: lint format-check
 
 # Install dependencies
 install-modules:
