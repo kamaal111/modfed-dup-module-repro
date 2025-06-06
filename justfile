@@ -55,14 +55,6 @@ install-node:
 
     curl -fsSL https://fnm.vercel.app/install | bash
 
-    # fnm
-    FNM_PATH="/root/.local/share/fnm"
-    if [ -d "$FNM_PATH" ]
-    then
-        export PATH="$FNM_PATH:$PATH"
-        eval "`fnm env`"
-    fi
-
     . ~/.zshrc
 
     fnm completions --shell zsh
